@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LoginManager {
+public class LoginManager{
+
     Scanner input = new Scanner(System.in);
     ArrayList<User> users = new ArrayList<>();
-    User currentUser = null;
+    User currentUser;
 
     public void userLogin() {
         this.users.add(new User("park", "1111", "박민규", "미국 캘리포니아", "01011111111", "silver", 2000 , 0));
@@ -20,8 +21,9 @@ public class LoginManager {
             boolean endLogIn = false;
             for (User u : users) {
                 if (u.getId().equals(id) && u.getPw().equals(pw)) {
-                    System.out.println("반갑습니다. " + u.getName() + "님 " + "로그인에 성공하였습니다.");
-                    currentUser = u;
+                    System.out.println("반갑습니다." + u.getName() + "님" + "로그인에 성공하였습니다.");
+                    this.currentUser = u;
+                    System.out.println(this.currentUser.getName());
                     endLogIn = true;
                     break;
                 }
@@ -77,7 +79,7 @@ public class LoginManager {
     }
 
     public void MarketManager() {
-        MarketManager marketManager = new MarketManager();
+        MarketManager marketManager = new MarketManager(this.currentUser);
         marketManager.run();
     }
 

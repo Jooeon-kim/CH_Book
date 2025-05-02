@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private String id;
     private String pw;
@@ -7,6 +10,7 @@ public class User {
     private String grade;
     private int point;
     private int totalPayed;
+    List<Book> CartList = new ArrayList<>();
 
     public User(String id, String pw, String name, String address, String phone, String grade, int point, int totalPayed) {
         this.id = id;
@@ -18,6 +22,7 @@ public class User {
         this.point = point;
         this.totalPayed = 0;
     }
+
 
     public String getId() {
         return id;
@@ -81,5 +86,9 @@ public class User {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public List<Book> getCartList() {
+        return CartList;
     }
 }
