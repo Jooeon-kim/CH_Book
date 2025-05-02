@@ -2,13 +2,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoginManager {
+    private static LoginManager instance;
     Scanner input = new Scanner(System.in);
     ArrayList<User> users = new ArrayList<>();
     User currentUser = null;
 
+    public static LoginManager getInstance() {
+        if (instance == null) {
+            instance = new LoginManager();
+        }
+        return instance;
+    }
+
     public void userLogin() {
-        this.users.add(new User("park", "1111", "박민규", "미국 캘리포니아", "01011111111", "silver", 2000 , 0));
-        this.users.add(new User("kim", "2222", "김주언", "미국 뉴욕", "01022222222", "vip", 2500 , 0));
+        this.users.add(new User("park", "1111", "박민규", "미국 캘리포니아", "01011111111", "silver", 2000, 0));
+        this.users.add(new User("kim", "2222", "김주언", "미국 뉴욕", "01022222222", "vip", 2500, 0));
         this.users.add(new User("jo", "3333", "조정태", "미국 시카고", "01033333333", "gold", 3000, 0));
 
         while (true) {
@@ -98,7 +106,7 @@ public class LoginManager {
         System.out.println("전화번호: " + currentUser.getPhone());
         System.out.println("등급: " + currentUser.getGrade());
         System.out.println("포인트: " + currentUser.getPoint());
-        System.out.println("총 구매금액" + currentUser.getTotalPayed());
+        System.out.println("총 구매금액: " + currentUser.getTotalPayed());
     }
 
 }
