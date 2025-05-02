@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class User {
     private String id;
     private String pw;
@@ -7,6 +9,7 @@ public class User {
     private String grade;
     private int point;
     private int totalPayed;
+    List<Book> CartList;
 
     public User(String id, String pw, String name, String address, String phone, String grade, int point, int totalPayed) {
         this.id = id;
@@ -25,14 +28,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public int getTotalPayed() {
-        return totalPayed;
-    }
-
-    public void setTotalPayed(int totalPayed) {
-        this.totalPayed = totalPayed;
     }
 
     public String getPw() {
@@ -81,5 +76,13 @@ public class User {
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    public int getTotalPayed() {
+        return totalPayed;
+    }
+
+    public void setTotalPayed(int totalPayed) {
+        this.totalPayed = totalPayed;
     }
 }
